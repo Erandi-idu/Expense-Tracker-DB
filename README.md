@@ -36,13 +36,20 @@ The project includes pre-written SQL queries to:
 - Optimized query performance using **Database Indexing** on frequently searched columns.
 
 ## 📁 Project Structure
-- `database_setup.sql`: Schema definitions (DDL).
+- `backend/server.js`: Node.js server and REST API logic.
+- `backend/package.json`: Project dependencies (Express, SQLite3, CORS).
+- `frontend/index.html`: Web interface for the expense tracker.
+- `database_setup.sql`: Core SQL schema definitions (DDL).
 - `sample_data.sql`: Initial data for testing (DML).
 - `queries.sql`: Analytical queries for reporting.
+- `advanced_features.sql`: Database Views and Indexing logic for optimization.
+- `er-diagram.png`: Entity Relationship Diagram of the database.
+- `.gitattributes`: Configuration to set the primary language to JavaScript.
+- `.gitignore`: Specifies files and folders to be ignored by Git (e.g., node_modules).
 
 ## 🚀 Future Roadmap
-- [ ] Implement a REST API using Node.js/Express or Java Spring Boot.
-- [ ] Build a Frontend dashboard using React.js.
+- [x] Implement a REST API using Node.js/Express or Java Spring Boot.
+- [x] Build a Frontend dashboard using React.js.
 - [ ] Integrate JWT-based authentication for Users.
 - [ ] Deploy the database schema to a Cloud platform.
 
