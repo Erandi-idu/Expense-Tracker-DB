@@ -5,6 +5,19 @@ A robust SQL-based backend for a personal finance management system. This projec
 ## 🚀 Overview
 This repository contains the database schema and sample queries for an expense tracking application. It allows users to log expenses, categorize them, and generate insightful reports.
 
+## 🌟 Full-Stack Implementation
+This project has evolved from a standalone database into a functional **Full-Stack Web Application**.
+
+### 🏗 Architecture
+- **Frontend**: Built with **HTML5, CSS3, and JavaScript**. It uses the **Fetch API** to communicate with the backend.
+- **Backend**: A RESTful API built using **Node.js** and the **Express.js** framework.
+- **Database**: **SQLite3** is used for efficient and persistent data storage.
+
+### ⚡ Key Features
+- **Real-time Data Entry**: Add new expenses via a user-friendly web form.
+- **Dynamic Data Display**: View all expenses automatically updated in a responsive table.
+- **API Endpoints**: Robust backend routes to handle GET and POST requests.
+
 ## 🛠 Database Schema
 The database consists of three main tables:
 - **Users**: Stores user profile information.
