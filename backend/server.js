@@ -1,8 +1,10 @@
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
+const cors = require('cors');
 const app = express();
 const PORT = 3000;
 
+app.use(cors()); 
 app.use(express.json());
 
 // Connecting to the Database and Creating Tables
@@ -20,6 +22,10 @@ db.run(`CREATE TABLE IF NOT EXISTS Expenses (
     expense_date TEXT,
     description TEXT
 )`);
+
+const seedSql = "INSERT INTO Expenses (user_id, category_id, amount, expense_date, description) VALUES (?, ?, ?, ?, ?)";
+db.run(seedSql, [1, 1, 1500, '2026-02-26', 'Lunch at Uni']);
+db.run(seedSql, [1, 2, 500, '2026-02-26', 'Bus Fare']);
 
 // 1. Get all expenses (GET)
 app.get('/expenses', (req, res) => {
