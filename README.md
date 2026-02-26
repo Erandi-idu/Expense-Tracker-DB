@@ -19,6 +19,8 @@ The project includes pre-written SQL queries to:
 - Retrieve detailed expense reports using **JOINs**.
 - Calculate total spending per category using **GROUP BY**.
 - Filter and sort transactions by date and amount.
+- Implemented **Database Views** for simplified monthly reporting.
+- Optimized query performance using **Database Indexing** on frequently searched columns.
 
 ## 📁 Project Structure
 - `database_setup.sql`: Schema definitions (DDL).
