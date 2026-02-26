@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense Tracker</title>
+    <style>
+        body { font-family: Arial; margin: 50px; background-color: #f4f4f4; }
+        table { width: 100%; border-collapse: collapse; background: white; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background: #333; color: white; }
+        h2 { color: #333; }
+    </style>
+</head>
+<body>
+
+    <h2>💰 My Expense Tracker</h2>
+    
+<div style="margin-bottom: 20px; background: #fff; padding: 20px; border-radius: 8px;">
+    <h3>Add New Expense</h3>
+    <input type="number" id="amount" placeholder="Amount">
+    <input type="date" id="date">
+    <input type="text" id="desc" placeholder="Description">
+    <button onclick="addExpense()">Add Expense</button>
+</div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody id="expense-table">
+            <!-- දත්ත මෙතනට වැටෙයි -->
+        </tbody>
+    </table>
+
+    <script>
+        // Retrieving data from the backend API
+        fetch('http://localhost:3000/expenses')
+            .then(response => response.json())
+            .then(result => {
+                const tableBody = document.getElementById('expense-table');
+                result.data.forEach(expense => {
+                    const row = `<tr>
+                        <td>${expense.id}</td>
+                        <td>${expense.amount}</td>
+                        <td>${expense.expense_date}</td>
+                        <td>${expense.description}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            })
+            .catch(error => console.error('Error:', error));
+
+            function addExpense() {
+    const amount = document.getElementById('amount').value;
+    const date = document.getElementById('date').value;
+    const desc = document.getElementById('desc').value;
+
+    if(!amount || !date || !desc) {
+        alert("Please fill all fields!");
+        return;
+    }
+
+    fetch('http://localhost:3000/expenses', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            user_id: 1, 
+            category_id: 1, 
+            amount: amount, 
+            expense_date: date, 
+            description: desc
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Success:", data);
+        alert("Expense Added Successfully!");
+        location.reload(); 
+    })
+    .catch(error => console.error('Error:', error));
+}
+    </script>
+</body>
+</html>
